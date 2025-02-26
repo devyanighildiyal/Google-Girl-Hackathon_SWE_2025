@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Welcome!</h2>
+  <p>Please choose an option:</p>
+  <a href="{{ url_for('auth.signup') }}"><button>Sign Up</button></a>
+  <a href="{{ url_for('auth.login') }}"><button>Login</button></a>
+{% endblock %}

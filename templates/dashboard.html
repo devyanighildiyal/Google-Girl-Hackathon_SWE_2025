@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Dashboard</h2>
+  <p>Select a module:</p>
+  <ul>
+    <li><a href="{{ url_for('resume_screening') }}">1. Resume Screening & Smart Candidate Ranking</a></li>
+    <li>2. Onboarding with Smart Document Processing</li>
+    <li>3. HR Chatbot (prototype placeholder)</li>
+    <li>4. Automated Interview Scheduling</li>
+    <li>5. Smart Email (prototype placeholder)</li>
+    <li>6. HR Analytics (prototype placeholder)</li>
+  </ul>
+  <a href="{{ url_for('index') }}">Logout</a>
+{% endblock %}

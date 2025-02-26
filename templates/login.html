@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    <label for="email">Organization Email:</label><br>
+    <input type="email" name="email" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" required><br><br>
+    <input type="submit" value="Send OTP">
+  </form>
+  <br>
+  <a href="{{ url_for('dashboard') }}"><button>Dashboard</button></a>
+  <br><br>
+  <a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}

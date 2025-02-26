@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Resume Screening & Smart Candidate Ranking</h2>
+  <form method="post">
+    <label for="occupation">Select Occupation:</label><br>
+    <select name="occupation" required>
+      <option value="">--Select--</option>
+      {% for occ in occupations %}
+        <option value="{{ occ }}" {% if selected_occupation == occ %}selected{% endif %}>{{ occ }}</option>
+      {% endfor %}
+    </select><br><br>
+    <input type="submit" value="Show Resumes">
+  </form>
+  <br>
+  {% if results is not none %}
+    <h3>Resumes for "{{ selected_occupation }}":</h3>
+    {% if results %}
+      <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Years of Experience</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in results %}
+            <tr>
+              <td>{{ r.name }}</td>
+              <td>{{ r.years_experience }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No resumes found for this occupation.</p>
+    {% endif %}
+  {% endif %}
+  <br>
+  <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+{% endblock %}

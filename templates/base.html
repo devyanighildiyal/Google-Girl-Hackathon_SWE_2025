@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title if title else "HelperMS" }}</title>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      color: #202124;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #4285F4;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+    .container {
+      padding: 2em;
+    }
+    a {
+      color: #4285F4;
+      text-decoration: none;
+    }
+    button, input[type="submit"] {
+      background-color: #4285F4;
+      color: #fff;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+    .flash {
+      padding: 1em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      background-color: #f1f3f4;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HelperMS</h1>
+  </header>
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+  <footer>
+    <p>&copy; 2025 HelperMS</p>
+  </footer>
+</body>
+</html>
