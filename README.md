@@ -21,16 +21,16 @@ The platform aims to follows a structured pipeline:
 
 ## Environment Setup
 
-1) Clone the Repository::
-git clone https://github.com/<your-username>/<repository-name>.git
-cd <repository-name>
+1) Clone the Repository:
+``` git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>```
 
 2) Create and Activate a Virtual Environment:
-python -m venv venv
+```python -m venv venv
 # On Linux/macOS:
 source venv/bin/activate
 # On Windows:
-venv\Scripts\activate
+venv\Scripts\activate```
 
 3) Install Dependencies:
 pip install -r requirements.txt
