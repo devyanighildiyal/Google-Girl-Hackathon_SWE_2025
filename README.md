@@ -29,10 +29,6 @@ cd <repository-name>
 2) Create and Activate a Virtual Environment:
    
 python -m venv venv
-# On Linux/macOS:
-source venv/bin/activate
-# On Windows:
-venv\Scripts\activate
 
 3) Install Dependencies:
 
