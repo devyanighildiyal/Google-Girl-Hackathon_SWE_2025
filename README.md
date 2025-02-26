@@ -1,2 +1,4 @@
-# Google-Girl-Hackathon_SWE_2025
-A repository for my submission for Google Girl Hackathon 2025
+#HelperMS        
+AI-Driven HR Platform
+
+An intelligent HR platform prototype that automates tasks like resume screening, onboarding, interview scheduling, and more.
