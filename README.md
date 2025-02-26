@@ -3,11 +3,10 @@ AI-Driven HR Platform: An intelligent HR platform prototype that automates tasks
 
 ## Table of Contents: 
 1) Project Overview
-2) Key Features
-3) Environment Setup
-4) How to Run
-5) Folder Structure
-6) Additional Notes
+2) Environment Setup
+3) How to Run
+4) Folder Structure
+5) Additional Notes
 
 ## Project Overview
 The platform aims to follows a structured pipeline:
@@ -19,3 +18,52 @@ The platform aims to follows a structured pipeline:
 6) AI Chatbot – Handles HR queries using Rasa/OpenAI GPT API.
 7) Email Automation – AI-generated emails for responses, follow-ups, and rejections.
 8) Insights & Reporting – Uses Pandas, Matplotlib, and Power BI/Streamlit for visualization.
+
+## Environment Setup
+
+1) Clone the Repository::
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
+
+2) Create and Activate a Virtual Environment:
+python -m venv venv
+# On Linux/macOS:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate
+
+3) Install Dependencies:
+pip install -r requirements.txt
+
+
+## How to Run:
+1) Navigate to the Project Folder:
+cd <repository-name>
+
+2) Run the Flask App:
+python app.py
+
+3) Open Your Browser:
+Visit http://127.0.0.1:5000 to access the home page.
+
+
+## Folder Structure:
+<repository-name>/
+├── app.py                  # Main Flask application file (routes for dashboard, etc.)
+├── auth.py                 # Authentication module (signup, login, OTP, personal details)
+├── resume_processing.py    # Functions for PDF text extraction, OCR, sorting resumes
+├── requirements.txt        # Python dependencies
+├── dataset/                # Folder containing resumes sorted by occupation
+│   ├── Data Scientist/
+│   └── Software Engineer/
+├── uploads/                # Folder for user-uploaded files (e.g., ID proofs)
+├── templates/              # HTML templates for Flask (base.html, index.html, etc.)
+├── static/                 # (Optional) Static assets (CSS, JS, images)
+└── README.md               # This file
+
+
+## Additional Notes
+1) Large Files:
+If your resume dataset or other files exceed GitHub’s file size limit, consider using Git LFS to track large files.
+2) Advanced NLP:
+Replace simple regex extractions with libraries like spaCy or transformers for more robust resume parsing.
