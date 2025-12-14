@@ -49,7 +49,9 @@ python app.py
 Visit http://127.0.0.1:5000 to access the home page.
 
 
-## Folder Structure:
+## 📁 Folder Structure
+
+```text
 <repository-name>/
 ├── app.py                  # Main Flask application file (routes for dashboard, etc.)
 ├── auth.py                 # Authentication module (signup, login, OTP, personal details)
@@ -60,8 +62,9 @@ Visit http://127.0.0.1:5000 to access the home page.
 │   └── Software Engineer/
 ├── uploads/                # Folder for user-uploaded files (e.g., ID proofs)
 ├── templates/              # HTML templates for Flask (base.html, index.html, etc.)
-├── static/                 # (Optional) Static assets (CSS, JS, images)
-└── README.md               # This file
+├── static/                 # Optional static assets (CSS, JS, images)
+└── README.md               # Project documentation
+```
 
 
 ## Additional Notes
