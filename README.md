@@ -66,9 +66,3 @@ Visit http://127.0.0.1:5000 to access the home page.
 └── README.md               # Project documentation
 ```
 
-
-## Additional Notes
-1) Large Files:
-If your resume dataset or other files exceed GitHub’s file size limit, consider using Git LFS to track large files.
-2) Advanced NLP:
-Replace simple regex extractions with libraries like spaCy or transformers for more robust resume parsing.
