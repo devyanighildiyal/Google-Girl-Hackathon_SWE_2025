@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="hero">
+    <h1 style="font-size:34px;">Interview Scheduling</h1>
+    <p>
+      Prototype module: collect availability and generate a suggested interview plan.
+      Later, this can be integrated with Google Calendar / Outlook APIs.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">Input availability (UI demo)</h3>
+        <form>
+          <div>
+            <label>Candidate name</label>
+            <input type="text" placeholder="e.g., John Doe" disabled>
+          </div>
+          <div>
+            <label>Role</label>
+            <input type="text" placeholder="e.g., Data Scientist" disabled>
+          </div>
+          <div>
+            <label>Preferred time window</label>
+            <select disabled>
+              <option>10:00 AM – 12:00 PM</option>
+              <option>12:00 PM – 2:00 PM</option>
+              <option>2:00 PM – 4:00 PM</option>
+              <option>4:00 PM – 6:00 PM</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="button" disabled>Generate schedule (coming soon)</button>
+          <div class="helper">This is a prototype UI. Add backend + calendar integration next.</div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">Suggested schedule (preview)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Round</th>
+              <th>Interviewer</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Screening</td>
+              <td>HR</td>
+              <td>20 mins</td>
+            </tr>
+            <tr>
+              <td>Technical</td>
+              <td>Panel</td>
+              <td>45 mins</td>
+            </tr>
+            <tr>
+              <td>Managerial</td>
+              <td>Hiring manager</td>
+              <td>30 mins</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="helper" style="margin-top:10px;">Replace preview with real generated slots + calendar events.</div>
+        <div style="margin-top:12px;">
+          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

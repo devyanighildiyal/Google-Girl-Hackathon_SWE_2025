@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h2 style="margin-top:0;">Create your account</h2>
+    <p class="helper" style="margin-top:-6px;">
+      Enter your basic details. We’ll store them securely in the prototype database.
+    </p>
+
+    <form method="post">
+      <div>
+        <label>First name</label>
+        <input type="text" name="first_name" placeholder="e.g., John" required>
+      </div>
+      <div>
+        <label>Last name</label>
+        <input type="text" name="last_name" placeholder="e.g., Doe" required>
+      </div>
+      <div>
+        <label>Age</label>
+        <input type="number" name="age" min="1" max="120" placeholder="e.g., 21" required>
+      </div>
+      <div>
+        <label>Gender</label>
+        <select name="gender" required>
+          <option value="" selected disabled>Select</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Other</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+      <div>
+        <label>Organization email</label>
+        <input type="email" name="email" placeholder="name@company.com" required>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Sign up</button>
+      <div class="helper">
+        Already have an account? <a href="{{ url_for('auth.login') }}" style="text-decoration:underline;">Log in</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

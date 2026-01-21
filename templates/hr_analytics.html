@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="hero">
+    <h1 style="font-size:34px;">HR Analytics</h1>
+    <p>
+      Prototype module: display quick KPIs and a hiring funnel preview. Later, populate this
+      from your real candidates, interviews, and offer data.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="col-4">
+      <div class="card module">
+        <div class="title">Applications</div>
+        <div style="font-size:34px; font-weight:900;">248</div>
+        <div class="desc">Total applicants in the last 30 days (demo).</div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card module">
+        <div class="title">Shortlisted</div>
+        <div style="font-size:34px; font-weight:900;">64</div>
+        <div class="desc">Candidates moved to interview (demo).</div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card module">
+        <div class="title">Offers</div>
+        <div style="font-size:34px; font-weight:900;">12</div>
+        <div class="desc">Offers sent (demo).</div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card">
+        <h3 style="margin-top:0;">Hiring funnel (preview)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Count</th>
+              <th>Conversion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Applications</td>
+              <td>248</td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>Screened</td>
+              <td>140</td>
+              <td>56%</td>
+            </tr>
+            <tr>
+              <td>Interviewed</td>
+              <td>64</td>
+              <td>26%</td>
+            </tr>
+            <tr>
+              <td>Offers</td>
+              <td>12</td>
+              <td>5%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="helper" style="margin-top:10px;">Replace demo numbers with live data once you connect storage for candidates.</div>
+        <div style="margin-top:12px;">
+          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="hero">
+    <h1 style="font-size:34px;">Onboarding</h1>
+    <p>
+      Prototype module: capture new-hire onboarding details and track completion.
+      (You can later connect this to real document upload + verification.)
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">New hire checklist</h3>
+        <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.8;">
+          <li>ID proof upload (placeholder)</li>
+          <li>Address verification (placeholder)</li>
+          <li>Offer letter & policy acknowledgement</li>
+          <li>Bank details & tax forms</li>
+        </ul>
+        <div style="margin-top:12px;">
+          <span class="chip">Prototype</span>
+          <span class="chip">Document flow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">Quick capture (UI demo)</h3>
+        <form>
+          <div>
+            <label>Employee name</label>
+            <input type="text" placeholder="e.g., Asha Sharma" disabled>
+          </div>
+          <div>
+            <label>Role</label>
+            <input type="text" placeholder="e.g., Software Engineer" disabled>
+          </div>
+          <div>
+            <label>Status</label>
+            <select disabled>
+              <option>Not started</option>
+              <option>In progress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+          <button class="btn" type="button" disabled>Save (coming soon)</button>
+          <div class="helper">This is a UI placeholder for module expansion.</div>
+        </form>
+        <div style="margin-top:12px;">
+          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

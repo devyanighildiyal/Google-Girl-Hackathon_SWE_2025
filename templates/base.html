@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title if title else "HelperMS" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="{{ url_for('index') }}" class="brand">
+        <div class="logo"></div>
+        <span>HelperMS</span>
+      </a>
+      <div class="nav-actions">
+        {% if session.get('user_email') %}
+          <span class="chip">Signed in as {{ session.get('user_name','User') }}</span>
+          <a class="btn" href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a class="btn btn-danger" href="{{ url_for('auth.logout') }}">Logout</a>
+        {% else %}
+          <a class="btn" href="{{ url_for('auth.login') }}">Login</a>
+          <a class="btn btn-primary" href="{{ url_for('auth.signup') }}">Sign up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <div class="footer">
+      <span>&copy; 2025 HelperMS</span>
+      <span style="margin-left:10px;">•</span>
+      <span style="margin-left:10px;">AI-driven HR platform prototype</span>
+    </div>
+  </div>
+</body>
+</html>

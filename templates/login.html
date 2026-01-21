@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h2 style="margin-top:0;">Welcome back</h2>
+    <p class="helper" style="margin-top:-6px;">
+      Example login to enter: <strong>john</strong>, email: <strong>john@gmail.com</strong>
+    </p>
+
+    <form method="post">
+      <div>
+        <label>Username</label>
+        <input type="text" name="username" placeholder="e.g., john" required>
+      </div>
+      <div>
+        <label>Organization email</label>
+        <input type="email" name="email" placeholder="john@gmail.com" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Log in</button>
+      <div class="helper">
+        New here? <a href="{{ url_for('auth.signup') }}" style="text-decoration:underline;">Create an account</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

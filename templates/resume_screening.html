@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="hero">
+    <h1 style="font-size:34px;">Resume Screening</h1>
+    <p>
+      Select an occupation to view candidate resumes ranked by extracted years of experience.
+      This module demonstrates a simple "smart ranking" pipeline.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">Choose an occupation</h3>
+        <form method="post">
+          <div>
+            <label>Occupation</label>
+            <select name="occupation" required>
+              <option value="" disabled {% if not selected_occupation %}selected{% endif %}>Select</option>
+              {% for occ in occupations %}
+                <option value="{{ occ }}" {% if selected_occupation == occ %}selected{% endif %}>{{ occ }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Show ranked candidates</button>
+          <div class="helper">Tip: ranking is based on a simple years-of-experience extractor.</div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="card">
+        <h3 style="margin-top:0;">Results</h3>
+        {% if results is not none %}
+          {% if results %}
+            <div class="helper" style="margin-bottom:10px;">Showing: <strong>{{ selected_occupation }}</strong></div>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:72px;">Rank</th>
+                  <th>Candidate</th>
+                  <th style="width:200px;">Years of experience</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for r in results %}
+                  <tr>
+                    <td>#{{ loop.index }}</td>
+                    <td>{{ r.name }}</td>
+                    <td>{{ r.years_experience }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="helper">No resumes found for this occupation.</p>
+          {% endif %}
+        {% else %}
+          <p class="helper">Pick an occupation to see ranked results.</p>
+        {% endif %}
+        <div style="margin-top:12px;">
+          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
