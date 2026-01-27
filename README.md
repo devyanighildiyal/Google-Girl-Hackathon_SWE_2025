@@ -124,14 +124,6 @@ http://127.0.0.1:5000
 
 ---
 
-## 💡 Hackathon Impact
-- Demonstrates real HR automation  
-- Combines AI + Web + Databases  
-- Production-style architecture  
-- Clean, responsive UI  
-
----
-
 ## 👩‍💻 Author
 
 **Devyani Ghildiyal**  
