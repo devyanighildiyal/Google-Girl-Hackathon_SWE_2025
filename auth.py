@@ -45,6 +45,40 @@ def init_db():
         )
         """
     )
+
+        # ---- Module tables ----
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS interviews (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            candidate TEXT,
+            role TEXT,
+            date TEXT,
+            time TEXT,
+            interviewer TEXT,
+            created_by_email TEXT,
+            created_at TEXT
+        )
+    """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS emails (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            recipient_name TEXT,
+            purpose TEXT,
+            content TEXT,
+            created_by_email TEXT,
+            created_at TEXT
+        )
+    """)
+
+    # ---- Demo seed for example login ----
+    cur.execute("SELECT 1 FROM users WHERE email = ?", ("john@gmail.com",))
+    if not cur.fetchone():
+        cur.execute("""
+            INSERT INTO users (first_name, last_name, age, gender, email, created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, ("john", "demo", 21, "Male", "john@gmail.com", datetime.utcnow().isoformat()))
+
     conn.commit()
     conn.close()
 

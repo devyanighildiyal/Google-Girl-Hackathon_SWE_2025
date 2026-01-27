@@ -1,75 +1,65 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="hero">
-    <h1 style="font-size:34px;">Interview Scheduling</h1>
-    <p>
-      Prototype module: collect availability and generate a suggested interview plan.
-      Later, this can be integrated with Google Calendar / Outlook APIs.
-    </p>
+
+<div class="hero">
+  <h1>Interview Scheduling</h1>
+  <p>Schedule interviews and view all upcoming interviews in one place.</p>
+</div>
+
+<div class="grid">
+  <div class="card col-6">
+    <h3 style="margin-top:0">Schedule an Interview</h3>
+
+    <form method="POST">
+      <label>Candidate Name</label>
+      <input name="candidate" placeholder="e.g., Aditi Sharma" required>
+
+      <label>Role</label>
+      <input name="role" placeholder="e.g., Frontend Intern" required>
+
+      <label>Date</label>
+      <input type="date" name="date" required>
+
+      <label>Time</label>
+      <input type="time" name="time" required>
+
+      <label>Interviewer</label>
+      <input name="interviewer" placeholder="e.g., HR Manager" required>
+
+      <button class="btn btn-success" type="submit">Schedule</button>
+    </form>
   </div>
 
-  <div class="grid">
-    <div class="col-6">
-      <div class="card">
-        <h3 style="margin-top:0;">Input availability (UI demo)</h3>
-        <form>
-          <div>
-            <label>Candidate name</label>
-            <input type="text" placeholder="e.g., John Doe" disabled>
-          </div>
-          <div>
-            <label>Role</label>
-            <input type="text" placeholder="e.g., Data Scientist" disabled>
-          </div>
-          <div>
-            <label>Preferred time window</label>
-            <select disabled>
-              <option>10:00 AM – 12:00 PM</option>
-              <option>12:00 PM – 2:00 PM</option>
-              <option>2:00 PM – 4:00 PM</option>
-              <option>4:00 PM – 6:00 PM</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" type="button" disabled>Generate schedule (coming soon)</button>
-          <div class="helper">This is a prototype UI. Add backend + calendar integration next.</div>
-        </form>
-      </div>
-    </div>
+  <div class="card col-6">
+    <h3 style="margin-top:0">Scheduled Interviews</h3>
 
-    <div class="col-6">
-      <div class="card">
-        <h3 style="margin-top:0;">Suggested schedule (preview)</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Round</th>
-              <th>Interviewer</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Screening</td>
-              <td>HR</td>
-              <td>20 mins</td>
-            </tr>
-            <tr>
-              <td>Technical</td>
-              <td>Panel</td>
-              <td>45 mins</td>
-            </tr>
-            <tr>
-              <td>Managerial</td>
-              <td>Hiring manager</td>
-              <td>30 mins</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="helper" style="margin-top:10px;">Replace preview with real generated slots + calendar events.</div>
-        <div style="margin-top:12px;">
-          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-        </div>
-      </div>
-    </div>
+    {% if interviews and interviews|length > 0 %}
+      <table>
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>Role</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Interviewer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in interviews %}
+          <tr>
+            <td>{{ row["candidate"] }}</td>
+            <td>{{ row["role"] }}</td>
+            <td>{{ row["date"] }}</td>
+            <td>{{ row["time"] }}</td>
+            <td>{{ row["interviewer"] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="helper">No interviews scheduled yet.</p>
+    {% endif %}
   </div>
+</div>
+
 {% endblock %}

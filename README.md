@@ -1,74 +1,138 @@
-# HelperMS        
-AI-Driven HR Platform: An intelligent HR platform prototype that automates tasks like resume screening, onboarding, interview scheduling, and more.
+# 🚀 HelperMS  
+## AI-Driven HR Management System (Prototype)
 
-## Table of Contents: 
-1) Project Overview
-2) Environment Setup
-3) How to Run
-4) Folder Structure
-5) Additional Notes
+HelperMS is an **AI-powered HR platform prototype** designed to simplify hiring and HR workflows.  
+From **smart resume screening** to **automated interview scheduling**, **email generation**, and **live HR analytics** — HelperMS brings intelligence and automation into one clean dashboard.
 
-## Project Overview
-The platform aims to follows a structured pipeline:
-1) Candidate Submission – Resumes are uploaded in PDF, DOCX, or image formats.
-2) Data Extraction & Processing – OCR (Tesseract/Azure Form Recognizer) extracts text, while NLP models (SpaCy, NLTK) structure and preprocess data.
-3) AI-Powered Analysis – BERT/RoBERTa and Sentence Transformers perform skill matching, ranking candidates based on job requirements.
-4) HR Dashboard – Displays ranked candidates, insights, and analytics.
-5) Interview Scheduling – Syncs with Google Calendar API/Microsoft Outlook API.
-6) AI Chatbot – Handles HR queries using Rasa/OpenAI GPT API.
-7) Email Automation – AI-generated emails for responses, follow-ups, and rejections.
-8) Insights & Reporting – Uses Pandas, Matplotlib, and Power BI/Streamlit for visualization.
+Built for **Google Girl Hackathon SWE 2025** 💙
 
-## Environment Setup
+---
 
-1) Clone the Repository:
-   
-git clone https://github.com/<your-username>/<repository-name>.git
-cd <repository-name>
+## 🌟 Features
 
-2) Create and Activate a Virtual Environment:
-   
-python -m venv venv
+### 📄 Resume Screening & Smart Candidate Ranking
+- Upload and analyze resumes  
+- Select a job role  
+- Automatically ranks candidates by **years of experience**
 
-3) Install Dependencies:
+### 📅 Automated Interview Scheduling
+- Schedule interviews with:
+  - Candidate name  
+  - Role  
+  - Date  
+  - Time  
+  - Interviewer  
+- View all scheduled interviews in one place  
+- Stored persistently in the database  
 
-pip install -r requirements.txt
+### ✉ Smart Email Generator
+- Enter candidate name and purpose  
+- Instantly generate a professional HR email  
+- All generated emails are saved  
 
+### 📊 HR Analytics Dashboard
+Live statistics from the system:
+- Total registered users  
+- Total login attempts  
+- Total interviews scheduled  
+- Total emails generated  
 
-## How to Run:
-1) Navigate to the Project Folder:
-   
-cd <repository-name>
+---
 
-2) Run the Flask App:
-   
-python app.py
+## 🔐 Authentication
 
-3) Open Your Browser:
-   
-Visit http://127.0.0.1:5000 to access the home page.
+### Signup
+- First name, last name  
+- Age, gender  
+- Organization email  
 
+### Login
+- Username (first name or full name)  
+- Organization email  
 
-## 📁 Folder Structure
-
-```text
-<repository-name>/
-├── app.py                  # Main Flask application file (routes for dashboard, etc.)
-├── auth.py                 # Authentication module (signup, login, OTP, personal details)
-├── resume_processing.py    # Functions for PDF text extraction, OCR, sorting resumes
-├── requirements.txt        # Python dependencies
-├── dataset/                # Folder containing resumes sorted by occupation
-│   ├── Data Scientist/
-│   └── Software Engineer/
-├── uploads/                # Folder for user-uploaded files (e.g., ID proofs)
-├── templates/              # HTML templates for Flask (base.html, index.html, etc.)
-├── static/                 # Optional static assets (CSS, JS, images)
-└── README.md               # Project documentation
+**Demo login**
+```
+Username: john  
+Email: john@gmail.com
 ```
 
+---
 
-## Additional Notes
-1) Large Files:
-If your resume dataset or other files exceed GitHub’s file size limit, consider using Git LFS to track large files.
-2) Advanced NLP:
-Replace simple regex extractions with libraries like spaCy or transformers for more robust resume parsing.
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|------|------------|
+| Frontend | HTML, CSS (custom dark UI) |
+| Backend | Flask |
+| Database | SQLite |
+| AI / NLP | Sentence Transformers, PyMuPDF, Pillow |
+| Machine Learning | Resume ranking engine |
+| Authentication | Flask Blueprints + SQLite |
+
+---
+
+## 📁 Project Structure
+
+```
+Google-Girl-Hackathon_SWE_2025-main/
+├── app.py                 # Main Flask app
+├── auth.py                # Authentication & DB logic
+├── resume_processing.py  # Resume ranking logic
+├── helperms.db            # SQLite database
+├── templates/
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── resume_screening.html
+│   ├── interview_scheduling.html
+│   ├── smart_email.html
+│   ├── hr_analytics.html
+│   ├── login.html
+│   └── signup.html
+├── static/
+│   └── style.css
+└── requirements.txt
+```
+
+---
+
+## ▶ How to Run Locally
+
+```bash
+git clone https://github.com/devyanighildiyal/Google-Girl-Hackathon_SWE_2025.git
+cd Google-Girl-Hackathon_SWE_2025
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+
+Open in your browser:
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📊 Database Tables
+
+| Table | Purpose |
+|------|---------|
+| users | Stores signup details |
+| login_events | Logs login attempts |
+| interviews | Stores interview schedules |
+| emails | Stores generated emails |
+
+---
+
+## 💡 Hackathon Impact
+- Demonstrates real HR automation  
+- Combines AI + Web + Databases  
+- Production-style architecture  
+- Clean, responsive UI  
+
+---
+
+## 👩‍💻 Author
+
+**Devyani Ghildiyal**  
+Google Girl Hackathon SWE 2025  

@@ -1,67 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="hero">
-    <h1 style="font-size:34px;">Smart Email</h1>
-    <p>
-      Prototype module: preview common HR email templates. Later, you can auto-generate
-      content using an LLM and send via SMTP/SendGrid.
-    </p>
+
+<div class="hero">
+  <h1>Smart Email</h1>
+  <p>Generate a professional HR email and save it automatically.</p>
+</div>
+
+<div class="grid">
+  <div class="card col-6">
+    <h3 style="margin-top:0">Generate Email</h3>
+
+    <form method="POST">
+      <label>Recipient Name</label>
+      <input name="name" placeholder="e.g., John" required>
+
+      <label>Purpose</label>
+      <input name="purpose" placeholder="e.g., Interview Invitation for Backend Intern" required>
+
+      <button class="btn btn-primary" type="submit">Generate</button>
+    </form>
+
   </div>
 
-  <div class="grid">
-    <div class="col-6">
-      <div class="card">
-        <h3 style="margin-top:0;">Choose a template</h3>
-        <form>
-          <div>
-            <label>Email type</label>
-            <select disabled>
-              <option>Shortlist email</option>
-              <option>Rejection email</option>
-              <option>Follow-up reminder</option>
-            </select>
-          </div>
-          <div>
-            <label>Candidate name</label>
-            <input type="text" placeholder="e.g., John" disabled>
-          </div>
-          <div>
-            <label>Role</label>
-            <input type="text" placeholder="e.g., Software Engineer Intern" disabled>
-          </div>
-          <button class="btn btn-primary" type="button" disabled>Generate (coming soon)</button>
-          <div class="helper">This is a UI placeholder.</div>
-        </form>
-      </div>
-    </div>
+  <div class="card col-6">
+    <h3 style="margin-top:0">Generated Email</h3>
 
-    <div class="col-6">
-      <div class="card">
-        <h3 style="margin-top:0;">Preview</h3>
-        <div style="border:1px solid var(--border); border-radius:16px; padding:14px; background: rgba(255,255,255,.03);">
-          <div class="helper" style="white-space:pre-wrap; line-height:1.7;">
-Subject: Update on your application
-
-Hi John,
-
-Thanks for applying. We reviewed your profile and would love to move forward with the next round.
-Please share your availability for a 30–45 minute interview.
-
-Regards,
-HelperMS HR
-          </div>
-        </div>
-
-        <div style="margin-top:12px; display:flex; gap:10px;">
-          <button class="btn" type="button" disabled>Copy</button>
-          <button class="btn btn-success" type="button" disabled>Send</button>
-        </div>
-        <div class="helper" style="margin-top:10px;">Wire this to a backend mailer in the next iteration.</div>
-
-        <div style="margin-top:12px;">
-          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-        </div>
-      </div>
-    </div>
+    {% if email %}
+      <pre style="white-space:pre-wrap; margin:0;">{{ email }}</pre>
+    {% else %}
+      <p class="helper">Generate an email to view it here.</p>
+    {% endif %}
   </div>
+</div>
+
 {% endblock %}

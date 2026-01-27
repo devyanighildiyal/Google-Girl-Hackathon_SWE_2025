@@ -1,75 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="hero">
-    <h1 style="font-size:34px;">HR Analytics</h1>
-    <p>
-      Prototype module: display quick KPIs and a hiring funnel preview. Later, populate this
-      from your real candidates, interviews, and offer data.
-    </p>
+
+<div class="hero">
+  <h1>HR Analytics</h1>
+  <p>Live stats from your HelperMS database.</p>
+</div>
+
+<div class="grid">
+  <div class="card col-6">
+    <div class="module">
+      <div class="title">Total Users</div>
+      <div class="desc">Number of signed-up users in the system.</div>
+      <div class="meta"><span class="chip">{{ total_users }}</span></div>
+    </div>
   </div>
 
-  <div class="grid">
-    <div class="col-4">
-      <div class="card module">
-        <div class="title">Applications</div>
-        <div style="font-size:34px; font-weight:900;">248</div>
-        <div class="desc">Total applicants in the last 30 days (demo).</div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card module">
-        <div class="title">Shortlisted</div>
-        <div style="font-size:34px; font-weight:900;">64</div>
-        <div class="desc">Candidates moved to interview (demo).</div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card module">
-        <div class="title">Offers</div>
-        <div style="font-size:34px; font-weight:900;">12</div>
-        <div class="desc">Offers sent (demo).</div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="card">
-        <h3 style="margin-top:0;">Hiring funnel (preview)</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Stage</th>
-              <th>Count</th>
-              <th>Conversion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Applications</td>
-              <td>248</td>
-              <td>100%</td>
-            </tr>
-            <tr>
-              <td>Screened</td>
-              <td>140</td>
-              <td>56%</td>
-            </tr>
-            <tr>
-              <td>Interviewed</td>
-              <td>64</td>
-              <td>26%</td>
-            </tr>
-            <tr>
-              <td>Offers</td>
-              <td>12</td>
-              <td>5%</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="helper" style="margin-top:10px;">Replace demo numbers with live data once you connect storage for candidates.</div>
-        <div style="margin-top:12px;">
-          <a class="btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-        </div>
-      </div>
+  <div class="card col-6">
+    <div class="module">
+      <div class="title">Total Login Attempts</div>
+      <div class="desc">Every login event (success + failure) recorded.</div>
+      <div class="meta"><span class="chip">{{ total_logins }}</span></div>
     </div>
   </div>
+
+  <div class="card col-6">
+    <div class="module">
+      <div class="title">Interviews Scheduled</div>
+      <div class="desc">Count of interviews added in Interview Scheduling.</div>
+      <div class="meta"><span class="chip">{{ total_interviews }}</span></div>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <div class="module">
+      <div class="title">Emails Generated</div>
+      <div class="desc">Count of emails created via Smart Email.</div>
+      <div class="meta"><span class="chip">{{ total_emails }}</span></div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
